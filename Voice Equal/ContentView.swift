@@ -14,27 +14,38 @@ struct ContentView: View {
 
 
     var body: some View {
+        VStack{
+            Text("DUAL TIMER").padding(10)
         VStack {
             Text("NUMBER OF PEOPLE")
             HStack{
                 HStack{
                 Text("WOMEN:")
+                    .padding(.top, 16)
+                    .padding(.bottom, 16)
                 TextField(
                     "",
                     value: $womenCount,
                     formatter: NumberFormatter()
-                ).background(Color.gray).padding(.leading , 10).padding(.trailing, 10).fixedSize(horizontal: true, vertical: false)
+                )
+                .background(Color.gray).padding(.leading , 10)
+                .padding(.trailing, 10)
+                .padding(.top, 16)
+                .padding(.bottom, 16).fixedSize(horizontal: true, vertical: false)
                 }
                 Spacer()
                 Divider().fixedSize(horizontal: true, vertical: true)
                 Spacer()
                 HStack{
-                Text("MEN:")
+                Text("MEN:")                    .padding(.top, 16)
+                    .padding(.bottom, 16)
                 TextField(
                     "",
                     value: $menCount,
                     formatter: NumberFormatter()
-                ).background(Color.gray).padding(.leading , 10).padding(.trailing, 10).fixedSize(horizontal: true, vertical: false)
+                ).background(Color.gray).padding(.leading , 10)
+                .padding(.trailing, 10)                .padding(.top, 16)
+                .padding(.bottom, 16).fixedSize(horizontal: true, vertical: false)
                 }
             }
             Button(action: {
@@ -44,7 +55,12 @@ struct ContentView: View {
                     .font(.subheadline)
                     .foregroundColor(.red)
             }
-        }
+        }.padding().shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+        .border(Color.gray)
+        .background(Color.yellow)
+            Spacer()
+        }.padding(24)
+        
     }
 }
 
