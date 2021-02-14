@@ -9,58 +9,88 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var womenCount: Int = 0
-    @State private var menCount: Int = 0
+//    @State private var womenCount: Int = 0
+//    @State private var menCount: Int = 0
 
 
     var body: some View {
-        VStack{
-            Text("DUAL TIMER").padding(10)
-        VStack {
-            Text("NUMBER OF PEOPLE")
-            HStack{
-                HStack{
-                Text("WOMEN:")
-                    .padding(.top, 16)
-                    .padding(.bottom, 16)
-                TextField(
-                    "",
-                    value: $womenCount,
-                    formatter: NumberFormatter()
-                )
-                .background(Color.gray).padding(.leading , 10)
-                .padding(.trailing, 10)
-                .padding(.top, 16)
-                .padding(.bottom, 16).fixedSize(horizontal: true, vertical: false)
-                }
-                Spacer()
-                Divider().fixedSize(horizontal: true, vertical: true)
-                Spacer()
-                HStack{
-                Text("MEN:")                    .padding(.top, 16)
-                    .padding(.bottom, 16)
-                TextField(
-                    "",
-                    value: $menCount,
-                    formatter: NumberFormatter()
-                ).background(Color.gray).padding(.leading , 10)
-                .padding(.trailing, 10)                .padding(.top, 16)
-                .padding(.bottom, 16).fixedSize(horizontal: true, vertical: false)
-                }
-            }
-            Button(action: {
-                print("Clicked on Button")
-            }) {
-                Image(systemName: "trash")
-                    .font(.subheadline)
-                    .foregroundColor(.red)
-            }
-        }.padding().shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-        .border(Color.gray)
-        .background(Color.yellow)
-            Spacer()
-        }.padding(24)
         
+        VStack{
+            Text("DUAL TIMER")
+                .font(.title)
+                .padding(.horizontal)
+            VStack {
+                Text("NUMBER OF PEOPLE")
+                    .multilineTextAlignment(.center)
+                    .lineLimit(1)
+                    .padding(.bottom, 16)
+                HStack{
+                    HStack{
+                        Text("WOMEN:")
+                            .padding(8.0)
+                    }
+                    Spacer()
+                    HStack{
+                        Text("MEN:")
+                            .padding(8.0)
+                    }
+                }
+            }.padding()
+            .shadow(radius: 10)
+            .border(Color.gray)
+            Spacer()
+        }.padding(.horizontal, 24)
+        
+        
+        
+        
+        
+//        VStack{
+//            Text("DUAL TIMER").padding(10)
+//        VStack {
+//            Text("NUMBER OF PEOPLE")
+//            HStack{
+//                HStack{
+//                Text("WOMEN:")
+//                    .padding(.top, 16)
+//                    .padding(.bottom, 16)
+//                TextField(
+//                    "",
+//                    value: $womenCount,
+//                    formatter: NumberFormatter()
+//                )
+//                .background(Color.gray).padding(.leading , 10)
+//                .padding(.trailing, 10)
+//                .padding(.top, 16)
+//                .padding(.bottom, 16).fixedSize(horizontal: true, vertical: false)
+//                }
+//                Spacer()
+//                Divider().fixedSize(horizontal: true, vertical: true)
+//                Spacer()
+//                HStack{
+//                Text("MEN:")                    .padding(.top, 16)
+//                    .padding(.bottom, 16)
+//                TextField(
+//                    "",
+//                    value: $menCount,
+//                    formatter: NumberFormatter()
+//                ).background(Color.gray).padding(.leading , 10)
+//                .padding(.trailing, 10)                .padding(.top, 16)
+//                .padding(.bottom, 16).fixedSize(horizontal: true, vertical: false)
+//                }
+//            }
+//            Button(action: {
+//                print("Clicked on Button")
+//            }) {
+//                Image(systemName: "trash")
+//                    .font(.subheadline)
+//                    .foregroundColor(.red)
+//            }
+//        }.padding().shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+//        .border(Color.gray)
+//        .background(Color.yellow)
+//            Spacer()
+//        }.padding(24)
     }
 }
 
