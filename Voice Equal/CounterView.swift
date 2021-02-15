@@ -9,8 +9,8 @@ import SwiftUI
 
 struct CounterView: View {
     
-    @State private var womenCount: Int = 0
-    @State private var menCount: Int = 0
+    @ObservedObject var userCount = SavedCount()
+
     
     var body: some View {
         VStack {
@@ -22,18 +22,24 @@ struct CounterView: View {
                 HStack{
                     Text("WOMEN:")
                         .padding(8.0)
-                    TextField("", value: $womenCount, formatter: NumberFormatter())
+                    TextField("", text: $userCount.womenCount)
+                        .keyboardType(.decimalPad)
                         .frame(width: 32)
                 }
                 Spacer()
                 HStack{
                     Text("MEN:")
                         .padding(8.0)
-                    TextField("", value: $menCount, formatter: NumberFormatter()).frame(width: 32)
+                    TextField("", text:$userCount.menCount )
+                        .keyboardType(.decimalPad)
+                        .frame(width: 32)
                 }
             }
             
             Button(action: {
+                // Dismiss keyboard on Save
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
+
                 print("Saved!")
             }, label: {
                 Text("SAVE")
