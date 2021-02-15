@@ -21,6 +21,8 @@ struct ContentView: View {
             CounterView()
                 .padding()
                 .border(Color.gray)
+            TimerView()
+                .padding(.top, 32)
             Spacer()
         }
         .padding(.horizontal, 24)

@@ -10,6 +10,7 @@
 		0511652825DA118100524366 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0511652725DA118100524366 /* Colors.xcassets */; };
 		0511653125DA1C0900524366 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511653025DA1C0900524366 /* CounterView.swift */; };
 		0511654F25DA593B00524366 /* SavedCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511654E25DA593B00524366 /* SavedCount.swift */; };
+		0511655425DA625200524366 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511655325DA625200524366 /* TimerView.swift */; };
 		05A4F51525D6605E0066AFA5 /* Voice_EqualApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4F51425D6605E0066AFA5 /* Voice_EqualApp.swift */; };
 		05A4F51725D6605E0066AFA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4F51625D6605E0066AFA5 /* ContentView.swift */; };
 		05A4F51925D660600066AFA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05A4F51825D660600066AFA5 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		0511652725DA118100524366 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		0511653025DA1C0900524366 /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		0511654E25DA593B00524366 /* SavedCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCount.swift; sourceTree = "<group>"; };
+		0511655325DA625200524366 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		05A4F51125D6605E0066AFA5 /* Voice Equal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Voice Equal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A4F51425D6605E0066AFA5 /* Voice_EqualApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voice_EqualApp.swift; sourceTree = "<group>"; };
 		05A4F51625D6605E0066AFA5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				05A4F51A25D660600066AFA5 /* Preview Content */,
 				0511653025DA1C0900524366 /* CounterView.swift */,
 				0511654E25DA593B00524366 /* SavedCount.swift */,
+				0511655325DA625200524366 /* TimerView.swift */,
 			);
 			path = "Voice Equal";
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0511655425DA625200524366 /* TimerView.swift in Sources */,
 				05A4F51725D6605E0066AFA5 /* ContentView.swift in Sources */,
 				05A4F51525D6605E0066AFA5 /* Voice_EqualApp.swift in Sources */,
 				0511653125DA1C0900524366 /* CounterView.swift in Sources */,
