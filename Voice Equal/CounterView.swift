@@ -23,16 +23,24 @@ struct CounterView: View {
                     Text("WOMEN:")
                         .padding(8.0)
                     TextField("", text: $userCount.womenCount)
+                        .disabled(self.editMode)
+                        .foregroundColor(
+                            !self.editMode ? Color.black : Color("women"))
                         .keyboardType(.decimalPad)
                         .frame(width: 32)
+                        .font(.title2)
                 }
                 Spacer()
                 HStack{
                     Text("MEN:")
                         .padding(8.0)
                     TextField("", text:$userCount.menCount )
+                        .disabled(self.editMode)
+                        .foregroundColor(
+                            !self.editMode ? Color.black : Color("men"))
                         .keyboardType(.decimalPad)
                         .frame(width: 32)
+                        .font(.title2)
                 }
             }
             
