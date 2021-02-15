@@ -10,8 +10,8 @@ import SwiftUI
 struct CounterView: View {
     
     @ObservedObject var userCount = SavedCount()
+    @State var editMode = false
 
-    
     var body: some View {
         VStack {
             Text("NUMBER OF PEOPLE")
@@ -36,25 +36,30 @@ struct CounterView: View {
                 }
             }
             
-            Button(action: {
-                // Dismiss keyboard on Save
-                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
-
-                print("Saved!")
-            }, label: {
-                Text("SAVE")
-                    .foregroundColor(Color.white)
-            })
-            .padding(10)
-            .background(Color("savebutton"))
+            if !editMode {
+                    Button(action: {
+                    // Dismiss keyboard on Save
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
+                        self.editMode.toggle()
+                    print("Saved!")
+                }, label: {
+                    Text("SAVE")
+                        .foregroundColor(Color.white)
+                })
+                .padding(10)
+                .background(Color("savebutton"))
+            }
             
-            Button(action: {
-                print("clicked the button")
-            }) {
-                Image(systemName: "pencil.circle")
-                    .resizable()
-                    .foregroundColor(Color.gray)
-                    .frame(width: 32, height: 32, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            if editMode {
+                Button(action: {
+                    self.editMode.toggle()
+                    print("clicked the button")
+                }) {
+                    Image(systemName: "pencil.circle")
+                        .resizable()
+                        .foregroundColor(Color.gray)
+                        .frame(width: 32, height: 32, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                }
             }
         }
     }
