@@ -17,9 +17,9 @@ struct ContentView: View {
                 .font(.headline)
                 .padding(.horizontal)
                 .padding(.top, 24)
-        CounterView()
-            .padding()
-            .border(Color.gray)
+            CounterView()
+                .padding()
+                .border(Color.gray)
             Spacer()
         }
         .padding(.horizontal, 24)
