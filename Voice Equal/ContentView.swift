@@ -11,10 +11,17 @@ struct ContentView: View {
     
     @State var resultView = false
 
+    init() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().standardAppearance = appearance
+    }
+    
     var body: some View {
-        if(!self.resultView) {
-            return
-                AnyView(VStack{
+        
+        NavigationView {
+            VStack{
                 Text("VOICE EQUAL")
                     .font(.headline)
                     .padding(.horizontal)
@@ -26,24 +33,23 @@ struct ContentView: View {
                 TimerView()
                     .padding(.top, 32)
                 Spacer()
-                Button(action: {
-                    withAnimation{
-                        self.resultView.toggle()
-                    }
-                    print("See Result!")
-                }, label: {
-                    Text("See Result")
-                })
+                NavigationLink(
+                    destination: ResultView(), isActive: $resultView){
+                    Button(action: {
+                        withAnimation{
+                            self.resultView.toggle()
+                        }
+                        print("See Result!")
+                    }, label: {
+                        Text("See Result")
+                    })
+                }
             }
             .padding(.horizontal, 24)
-            .padding(.vertical, 16)
+            .padding(.vertical, 24)
             .background(Color("background"))
-            .ignoresSafeArea())
-        } else {
-            return AnyView(ResultView())
+            .ignoresSafeArea()
         }
-        
-
     }
 }
 
