@@ -12,7 +12,21 @@ struct ResultView: View {
 
     var body: some View {
             VStack{
-               Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                Spacer()
+                HStack{
+                    Spacer()
+                    VStack{
+                        Text("HEADCOUNT")
+                        ResultPieChartView()
+                    }
+                    Spacer()
+                    VStack{
+                        Text("TIME")
+                        ResultPieChartView()
+                    }
+                    Spacer()
+                }
+                Spacer()
                 VStack(alignment: .leading){
                     Text("WOMEN")
                         .bold()
@@ -32,6 +46,7 @@ struct ResultView: View {
                     RoundedRectangle(cornerRadius: 5)
                         .stroke(Color.gray, lineWidth: 1)
                 )
+                Spacer()
             }
             .padding()
             .navigationBarBackButtonHidden(true)
