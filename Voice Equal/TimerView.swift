@@ -8,6 +8,18 @@
 import SwiftUI
 
 struct TimerView: View {
+    @State var womenMins:Int = 0
+    @State var womenSecs:Int = 0
+    @State var womenTimerIsPaused: Bool = true
+    
+    @State var menMins:Int = 0
+    @State var menSecs:Int = 0
+    @State var menTimerIsPaused: Bool = true
+    
+    @State var womenTimer: Timer? = nil
+    @State var menTimer: Timer? = nil
+
+
     var body: some View {
         VStack{
             HStack{
@@ -15,10 +27,10 @@ struct TimerView: View {
                 VStack{
                     Text("WOMEN")
                         .padding(.bottom, 8)
-                    Text("00:00")
+                    Text(String(format: "%02d", womenMins)+":"+String(format: "%02d", womenSecs))
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     Button(action: {
-                        print("Start Timer!")
+                        self.startWomenTimer()
                     }, label: {
                         Text("Start Timer")
                             .foregroundColor(Color.white)
@@ -39,7 +51,7 @@ struct TimerView: View {
                     Text("00:00")
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     Button(action: {
-                        print("Start Timer!")
+                        self.stopWomenTimer()
                     }, label: {
                         Text("Start Timer")
                             .foregroundColor(Color.white)
@@ -69,6 +81,24 @@ struct TimerView: View {
             Text("00:00")
                 .font(.headline)
         }
+    }
+    
+    func startWomenTimer(){
+      womenTimerIsPaused = false
+      womenTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ tempTimer in
+        if self.womenSecs == 59 {
+          self.womenSecs = 0
+          self.womenMins = self.womenMins + 1
+        } else {
+          self.womenSecs = self.womenSecs + 1
+        }
+      }
+    }
+    
+    func stopWomenTimer(){
+      womenTimerIsPaused = true
+      womenTimer?.invalidate()
+        womenTimer = nil
     }
 }
 
