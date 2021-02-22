@@ -19,6 +19,7 @@
 		05A4F52725D660600066AFA5 /* Voice_EqualTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4F52625D660600066AFA5 /* Voice_EqualTests.swift */; };
 		05A4F53225D660600066AFA5 /* Voice_EqualUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4F53125D660600066AFA5 /* Voice_EqualUITests.swift */; };
 		05AF869225DE3576005C55D5 /* ResultPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AF869125DE3576005C55D5 /* ResultPieChartView.swift */; };
+		05AF869725E33738005C55D5 /* SavedTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AF869625E33738005C55D5 /* SavedTime.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		05A4F53125D660600066AFA5 /* Voice_EqualUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voice_EqualUITests.swift; sourceTree = "<group>"; };
 		05A4F53325D660600066AFA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05AF869125DE3576005C55D5 /* ResultPieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPieChartView.swift; sourceTree = "<group>"; };
+		05AF869625E33738005C55D5 /* SavedTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTime.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				0511655325DA625200524366 /* TimerView.swift */,
 				0511655825DA6DA700524366 /* ResultView.swift */,
 				05AF869125DE3576005C55D5 /* ResultPieChartView.swift */,
+				05AF869625E33738005C55D5 /* SavedTime.swift */,
 			);
 			path = "Voice Equal";
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				0511655425DA625200524366 /* TimerView.swift in Sources */,
 				05A4F51725D6605E0066AFA5 /* ContentView.swift in Sources */,
 				05A4F51525D6605E0066AFA5 /* Voice_EqualApp.swift in Sources */,
+				05AF869725E33738005C55D5 /* SavedTime.swift in Sources */,
 				0511653125DA1C0900524366 /* CounterView.swift in Sources */,
 				0511654F25DA593B00524366 /* SavedCount.swift in Sources */,
 				0511655925DA6DA700524366 /* ResultView.swift in Sources */,

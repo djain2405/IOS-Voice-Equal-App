@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct TimerView: View {
-    @State var womenMins:Int = 0
-    @State var womenSecs:Int = 0
-    @State var womenTimerIsPaused: Bool = true
     
-    @State var menMins:Int = 0
-    @State var menSecs:Int = 0
+    @ObservedObject var userTime = SavedTime()
+
+    @State var womenTimerIsPaused: Bool = true
     @State var menTimerIsPaused: Bool = true
     
     @State var womenTimer: Timer? = nil
@@ -27,8 +25,8 @@ struct TimerView: View {
                 VStack{
                     Text("WOMEN")
                         .padding(.bottom, 8)
-                    Text(String(format: "%02d", womenMins)+":"+String(format: "%02d", womenSecs))
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    Text(String(format: "%02d", self.userTime.womenMins)+":"+String(format: "%02d", self.userTime.womenSecs))
+                        .font(.title)
                     if womenTimerIsPaused {
                         Button(action: {
                             self.stopMenTimer()
@@ -60,8 +58,8 @@ struct TimerView: View {
                 VStack {
                     Text("MEN")
                         .padding(.bottom, 8)
-                    Text(String(format: "%02d", menMins)+":"+String(format: "%02d", menSecs))
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    Text(String(format: "%02d", self.userTime.menMins)+":"+String(format: "%02d", self.userTime.menSecs))
+                        .font(.title)
                     if menTimerIsPaused {
                         Button(action: {
                             self.stopWomenTimer()
@@ -110,11 +108,11 @@ struct TimerView: View {
     func startWomenTimer(){
       womenTimerIsPaused = false
       womenTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ tempTimer in
-        if self.womenSecs == 59 {
-          self.womenSecs = 0
-          self.womenMins = self.womenMins + 1
+        if self.userTime.womenSecs ==  59 {
+          self.userTime.womenSecs = 0
+          self.userTime.womenMins = self.userTime.womenMins + 1
         } else {
-          self.womenSecs = self.womenSecs + 1
+          self.userTime.womenSecs = self.userTime.womenSecs + 1
         }
       }
     }
@@ -122,11 +120,11 @@ struct TimerView: View {
     func startMenTimer(){
       menTimerIsPaused = false
       menTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ tempTimer in
-        if self.menSecs == 59 {
-          self.menSecs = 0
-          self.menMins = self.menMins + 1
+        if self.userTime.menSecs ==  59 {
+          self.userTime.menSecs = 0
+          self.userTime.menMins = self.userTime.menMins + 1
         } else {
-          self.menSecs = self.menSecs + 1
+          self.userTime.menSecs = self.userTime.menSecs + 1
         }
       }
     }
