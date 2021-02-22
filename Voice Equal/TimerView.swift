@@ -29,14 +29,26 @@ struct TimerView: View {
                         .padding(.bottom, 8)
                     Text(String(format: "%02d", womenMins)+":"+String(format: "%02d", womenSecs))
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    Button(action: {
-                        self.startWomenTimer()
-                    }, label: {
-                        Text("Start Timer")
-                            .foregroundColor(Color.white)
-                    })
-                    .padding(8)
-                    .background(Color("women"))
+                    if womenTimerIsPaused {
+                        Button(action: {
+                            self.stopMenTimer()
+                            self.startWomenTimer()
+                        }, label: {
+                            Text("Start Timer")
+                                .foregroundColor(Color.white)
+                        })
+                        .padding(8)
+                        .background(Color("women"))
+                    } else {
+                        Button(action: {
+                            self.stopWomenTimer()
+                        }, label: {
+                            Text("Stop Timer")
+                                .foregroundColor(Color.white)
+                        })
+                        .padding(8)
+                        .background(Color("women"))
+                    }
                 }
                 .padding(24)
                 .cornerRadius(100)
@@ -48,16 +60,28 @@ struct TimerView: View {
                 VStack {
                     Text("MEN")
                         .padding(.bottom, 8)
-                    Text("00:00")
+                    Text(String(format: "%02d", menMins)+":"+String(format: "%02d", menSecs))
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    Button(action: {
-                        self.stopWomenTimer()
-                    }, label: {
-                        Text("Start Timer")
-                            .foregroundColor(Color.white)
-                    })
-                    .padding(8)
-                    .background(Color("men"))
+                    if menTimerIsPaused {
+                        Button(action: {
+                            self.stopWomenTimer()
+                            self.startMenTimer()
+                        }, label: {
+                            Text("Start Timer")
+                                .foregroundColor(Color.white)
+                        })
+                        .padding(8)
+                        .background(Color("men"))
+                    } else {
+                        Button(action: {
+                            self.stopMenTimer()
+                        }, label: {
+                            Text("Stop Timer")
+                                .foregroundColor(Color.white)
+                        })
+                        .padding(8)
+                        .background(Color("men"))
+                    }
                 }
                 .padding(24)
                 .cornerRadius(100)
@@ -95,10 +119,28 @@ struct TimerView: View {
       }
     }
     
+    func startMenTimer(){
+      menTimerIsPaused = false
+      menTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ tempTimer in
+        if self.menSecs == 59 {
+          self.menSecs = 0
+          self.menMins = self.menMins + 1
+        } else {
+          self.menSecs = self.menSecs + 1
+        }
+      }
+    }
+    
     func stopWomenTimer(){
       womenTimerIsPaused = true
       womenTimer?.invalidate()
         womenTimer = nil
+    }
+    
+    func stopMenTimer(){
+      menTimerIsPaused = true
+      menTimer?.invalidate()
+        menTimer = nil
     }
 }
 
