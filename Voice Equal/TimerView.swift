@@ -28,31 +28,32 @@ struct TimerView: View {
                     Text(String(format: "%02d", self.userTime.womenMins)+":"+String(format: "%02d", self.userTime.womenSecs))
                         .font(.title)
                     if womenTimerIsPaused {
-                        Button(action: {
+                        Button(action:{
                             self.stopMenTimer()
                             self.startWomenTimer()
                         }, label: {
-                            Text("Start Timer")
-                                .foregroundColor(Color.white)
+                            Image("womenplay")
+                                .resizable()
+                                .frame(width: 32, height: 32, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         })
                         .padding(8)
-                        .background(Color("women"))
                     } else {
-                        Button(action: {
+                        Button(action:{
                             self.stopWomenTimer()
                         }, label: {
-                            Text("Stop Timer")
-                                .foregroundColor(Color.white)
+                            Image("womenpause")
+                                .resizable()
+                                .frame(width: 32, height: 32, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         })
                         .padding(8)
-                        .background(Color("women"))
                     }
                 }
                 .padding(24)
                 .cornerRadius(100)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 100)
-                        .stroke(Color.gray, lineWidth: 1)
+                    Circle()
+                        .strokeBorder(Color.gray,lineWidth: 1)
+                        .frame(width: 280,height:160)
                 )
                 Spacer()
                 VStack {
@@ -61,31 +62,32 @@ struct TimerView: View {
                     Text(String(format: "%02d", self.userTime.menMins)+":"+String(format: "%02d", self.userTime.menSecs))
                         .font(.title)
                     if menTimerIsPaused {
-                        Button(action: {
+                        Button(action:{
                             self.stopWomenTimer()
                             self.startMenTimer()
                         }, label: {
-                            Text("Start Timer")
-                                .foregroundColor(Color.white)
+                            Image("menplay")
+                                .resizable()
+                                .frame(width: 32, height: 32, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         })
                         .padding(8)
-                        .background(Color("men"))
                     } else {
-                        Button(action: {
+                        Button(action:{
                             self.stopMenTimer()
                         }, label: {
-                            Text("Stop Timer")
-                                .foregroundColor(Color.white)
+                            Image("menpause")
+                                .resizable()
+                                .frame(width: 32, height: 32, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         })
                         .padding(8)
-                        .background(Color("men"))
                     }
                 }
                 .padding(24)
                 .cornerRadius(100)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 100)
-                        .stroke(Color.gray, lineWidth: 1)
+                    Circle()
+                        .strokeBorder(Color.gray,lineWidth: 1)
+                        .frame(width: 280,height:160)
                 )
                 Spacer()
             }
