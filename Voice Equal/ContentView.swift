@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @ObservedObject var themeColor: ThemeColor = .shared
     @State var resultView = false
 
     init() {
@@ -47,7 +48,7 @@ struct ContentView: View {
             }
             .padding(.horizontal, 24)
             .padding(.vertical, 24)
-            .background(Color("background"))
+            .background(self.themeColor.backgroundColor)
             .ignoresSafeArea()
         }
     }

@@ -20,6 +20,7 @@
 		05A4F53225D660600066AFA5 /* Voice_EqualUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4F53125D660600066AFA5 /* Voice_EqualUITests.swift */; };
 		05AF869225DE3576005C55D5 /* ResultPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AF869125DE3576005C55D5 /* ResultPieChartView.swift */; };
 		05AF869725E33738005C55D5 /* SavedTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AF869625E33738005C55D5 /* SavedTime.swift */; };
+		05AF86A225E75A81005C55D5 /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AF86A125E75A81005C55D5 /* ThemeColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		05A4F53325D660600066AFA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05AF869125DE3576005C55D5 /* ResultPieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPieChartView.swift; sourceTree = "<group>"; };
 		05AF869625E33738005C55D5 /* SavedTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTime.swift; sourceTree = "<group>"; };
+		05AF86A125E75A81005C55D5 /* ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				0511655825DA6DA700524366 /* ResultView.swift */,
 				05AF869125DE3576005C55D5 /* ResultPieChartView.swift */,
 				05AF869625E33738005C55D5 /* SavedTime.swift */,
+				05AF86A125E75A81005C55D5 /* ThemeColor.swift */,
 			);
 			path = "Voice Equal";
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			files = (
 				05AF869225DE3576005C55D5 /* ResultPieChartView.swift in Sources */,
 				0511655425DA625200524366 /* TimerView.swift in Sources */,
+				05AF86A225E75A81005C55D5 /* ThemeColor.swift in Sources */,
 				05A4F51725D6605E0066AFA5 /* ContentView.swift in Sources */,
 				05A4F51525D6605E0066AFA5 /* Voice_EqualApp.swift in Sources */,
 				05AF869725E33738005C55D5 /* SavedTime.swift in Sources */,

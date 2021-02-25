@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import Combine
 
 struct TimerView: View {
     
     @ObservedObject var userTime = SavedTime()
+    @ObservedObject var themeColor: ThemeColor = .shared
 
     @State var womenTimerIsPaused: Bool = true
     @State var menTimerIsPaused: Bool = true
@@ -29,6 +31,7 @@ struct TimerView: View {
                         .font(.title)
                     if womenTimerIsPaused {
                         Button(action:{
+                            self.themeColor.backgroundColor = Color("women")
                             self.stopMenTimer()
                             self.startWomenTimer()
                         }, label: {
@@ -63,6 +66,7 @@ struct TimerView: View {
                         .font(.title)
                     if menTimerIsPaused {
                         Button(action:{
+                            self.themeColor.backgroundColor = Color("men")
                             self.stopWomenTimer()
                             self.startMenTimer()
                         }, label: {
@@ -110,6 +114,7 @@ struct TimerView: View {
     func startWomenTimer(){
       womenTimerIsPaused = false
       womenTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ tempTimer in
+        self.themeColor.backgroundColor = Color("women")
         if self.userTime.womenSecs ==  59 {
           self.userTime.womenSecs = 0
           self.userTime.womenMins = self.userTime.womenMins + 1
@@ -117,11 +122,13 @@ struct TimerView: View {
           self.userTime.womenSecs = self.userTime.womenSecs + 1
         }
       }
+      
     }
     
     func startMenTimer(){
       menTimerIsPaused = false
       menTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ tempTimer in
+        self.themeColor.backgroundColor = Color("men")
         if self.userTime.menSecs ==  59 {
           self.userTime.menSecs = 0
           self.userTime.menMins = self.userTime.menMins + 1
