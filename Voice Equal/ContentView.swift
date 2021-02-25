@@ -24,6 +24,7 @@ struct ContentView: View {
         NavigationView {
             VStack{
                 Text("VOICE EQUAL")
+                    .foregroundColor(self.themeColor.textColor)
                     .font(.headline)
                     .padding(.horizontal)
                     .padding(.top, 32)

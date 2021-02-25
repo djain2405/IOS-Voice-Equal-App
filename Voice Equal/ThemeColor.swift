@@ -15,4 +15,5 @@ class ThemeColor: ObservableObject {
     static let shared = ThemeColor()
   
     @Published var backgroundColor = Color("background")
+    @Published var textColor = Color(.black)
 }

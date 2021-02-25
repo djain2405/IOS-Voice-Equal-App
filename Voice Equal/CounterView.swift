@@ -10,17 +10,20 @@ import SwiftUI
 struct CounterView: View {
     
     @ObservedObject var userCount = SavedCount()
+    @ObservedObject var themeColor: ThemeColor = .shared
     @State var editMode = false
 
     var body: some View {
         VStack {
             Text("NUMBER OF PEOPLE")
+                .foregroundColor(self.themeColor.textColor)
                 .multilineTextAlignment(.center)
                 .lineLimit(1)
                 .padding(.bottom, 16)
             HStack{
                 HStack{
                     Text("WOMEN:")
+                        .foregroundColor(self.themeColor.textColor)
                         .padding(8.0)
                     TextField("", text: $userCount.womenCount)
                         .disabled(self.editMode)
@@ -33,6 +36,7 @@ struct CounterView: View {
                 Spacer()
                 HStack{
                     Text("MEN:")
+                        .foregroundColor(self.themeColor.textColor)
                         .padding(8.0)
                     TextField("", text:$userCount.menCount )
                         .disabled(self.editMode)

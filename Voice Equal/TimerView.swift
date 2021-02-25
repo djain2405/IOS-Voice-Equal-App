@@ -26,12 +26,15 @@ struct TimerView: View {
                 Spacer()
                 VStack{
                     Text("WOMEN")
+                        .foregroundColor(self.themeColor.textColor)
                         .padding(.bottom, 8)
                     Text(String(format: "%02d", self.userTime.womenMins)+":"+String(format: "%02d", self.userTime.womenSecs))
+                        .foregroundColor(self.themeColor.textColor)
                         .font(.title)
                     if womenTimerIsPaused {
                         Button(action:{
                             self.themeColor.backgroundColor = Color("women")
+                            self.themeColor.textColor = Color(.white)
                             self.stopMenTimer()
                             self.startWomenTimer()
                         }, label: {
@@ -61,12 +64,15 @@ struct TimerView: View {
                 Spacer()
                 VStack {
                     Text("MEN")
+                        .foregroundColor(self.themeColor.textColor)
                         .padding(.bottom, 8)
                     Text(String(format: "%02d", self.userTime.menMins)+":"+String(format: "%02d", self.userTime.menSecs))
+                        .foregroundColor(self.themeColor.textColor)
                         .font(.title)
                     if menTimerIsPaused {
                         Button(action:{
                             self.themeColor.backgroundColor = Color("men")
+                            self.themeColor.textColor = Color(.white)
                             self.stopWomenTimer()
                             self.startMenTimer()
                         }, label: {
@@ -96,6 +102,7 @@ struct TimerView: View {
                 Spacer()
             }
             Text("Reset")
+                .foregroundColor(self.themeColor.textColor)
             Button(action: {
                 print("clicked the reset button")
             }) {
@@ -105,8 +112,11 @@ struct TimerView: View {
                     .frame(width: 32, height: 32, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             }
             Text("Total Duration")
+                .foregroundColor(self.themeColor.textColor)
                 .font(.caption)
+                .padding(.top, 24)
             Text("00:00")
+                .foregroundColor(self.themeColor.textColor)
                 .font(.headline)
         }
     }
