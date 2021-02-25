@@ -105,6 +105,9 @@ struct TimerView: View {
                 .foregroundColor(self.themeColor.textColor)
             Button(action: {
                 print("clicked the reset button")
+                UserDefaults.resetDefaults()
+                self.themeColor.backgroundColor = Color("background")
+                self.themeColor.textColor = Color(.black)
             }) {
                 Image(systemName: "arrow.clockwise.circle")
                     .resizable()

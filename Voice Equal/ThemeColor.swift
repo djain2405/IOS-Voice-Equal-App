@@ -17,3 +17,11 @@ class ThemeColor: ObservableObject {
     @Published var backgroundColor = Color("background")
     @Published var textColor = Color(.black)
 }
+
+extension UserDefaults {
+    static func resetDefaults() {
+        if let bundleID = Bundle.main.bundleIdentifier {
+            UserDefaults.standard.removePersistentDomain(forName: bundleID)
+        }
+    }
+}
