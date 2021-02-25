@@ -32,11 +32,25 @@ class SavedTime: ObservableObject {
         }
     }
     
+    @Published var totalMins: Int {
+        didSet {
+            UserDefaults.standard.set(totalMins, forKey: "totalMins")
+        }
+    }
+    
+    @Published var totalSecs: Int {
+        didSet {
+            UserDefaults.standard.set(totalSecs, forKey: "totalSecs")
+        }
+    }
+    
     
     init() {
         self.womenMins = UserDefaults.standard.object(forKey: "womenMins") as? Int ?? 0
         self.menMins = UserDefaults.standard.object(forKey: "menMins") as? Int ?? 0
         self.womenSecs = UserDefaults.standard.object(forKey: "womenSecs") as? Int ?? 0
         self.menSecs = UserDefaults.standard.object(forKey: "menSecs") as? Int ?? 0
+        self.totalMins = UserDefaults.standard.object(forKey: "totalMins") as? Int ?? 0
+        self.totalSecs = UserDefaults.standard.object(forKey: "totalSecs") as? Int ?? 0
     }
 }

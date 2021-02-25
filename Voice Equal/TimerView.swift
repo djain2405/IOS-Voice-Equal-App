@@ -115,7 +115,7 @@ struct TimerView: View {
                 .foregroundColor(self.themeColor.textColor)
                 .font(.caption)
                 .padding(.top, 24)
-            Text("00:00")
+            Text(String(format: "%02d", self.userTime.totalMins)+":"+String(format: "%02d", self.userTime.totalSecs))
                 .foregroundColor(self.themeColor.textColor)
                 .font(.headline)
         }
@@ -150,14 +150,26 @@ struct TimerView: View {
     
     func stopWomenTimer(){
       womenTimerIsPaused = true
+      calculateTotal()
       womenTimer?.invalidate()
-        womenTimer = nil
+      womenTimer = nil
     }
     
     func stopMenTimer(){
       menTimerIsPaused = true
+      calculateTotal()
       menTimer?.invalidate()
         menTimer = nil
+    }
+    
+    func calculateTotal(){
+      self.userTime.totalMins = self.userTime.menMins + self.userTime.womenMins
+      self.userTime.totalSecs = self.userTime.menSecs + self.userTime.womenSecs
+      
+      if(self.userTime.totalSecs > 59) {
+        self.userTime.totalSecs -= 59
+        self.userTime.totalMins += 1
+      }
     }
 }
 
