@@ -9,6 +9,12 @@ import SwiftUI
 
 struct ResultView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @ObservedObject var userTime = SavedTime()
+    @ObservedObject var userCount = SavedCount()
+    @State var womenCountPercent: Int = 0
+    @State var menCountPercent: Int = 0
+    @State var womenTimePercent: Int = 0
+    @State var menTimePercent: Int = 0
 
     var body: some View {
             VStack{
@@ -32,13 +38,13 @@ struct ResultView: View {
                         .bold()
                         .foregroundColor(Color("women"))
                         .padding(.bottom, 8)
-                    Text("50% of speakers were women and they spoke 39% of the time")
+                    Text("\(self.womenCountPercent)% of speakers were women and they spoke  \(self.womenTimePercent)% of the time")
                         .padding(.bottom, 12)
                     Text("MEN")
                             .bold()
                             .foregroundColor(Color("men"))
                             .padding(.bottom, 8)
-                    Text("50% of speakers were men and they spoke 39% of the time")
+                    Text("\(self.menCountPercent)% of speakers were men and they spoke  \(self.menTimePercent)% of the time")
                         .padding(.bottom, 12)
                 }
                 .padding()
@@ -47,6 +53,19 @@ struct ResultView: View {
                         .stroke(Color.gray, lineWidth: 1)
                 )
                 Spacer()
+            }
+            .onAppear(){
+                let totalCount = (Int(self.userCount.menCount) ?? 0) + (Int(self.userCount.womenCount) ?? 0)
+                if(totalCount > 0) {
+                    self.menCountPercent = ((Int(self.userCount.menCount) ?? 0) * 100)/totalCount
+                    self.womenCountPercent = ((Int(self.userCount.womenCount) ?? 0) * 100)/totalCount
+                }
+                let totalTime = self.userTime.menMins * 60 + self.userTime.menSecs + self.userTime.womenMins * 60 + self.userTime.womenSecs
+                if(totalTime > 0) {
+                    self.menTimePercent = ((self.userTime.menMins * 60 + self.userTime.menSecs) * 100)/totalTime
+                    self.womenTimePercent = ((self.userTime.womenMins * 60 + self.userTime.womenSecs) * 100)/totalTime
+                }
+               
             }
             .padding()
             .navigationBarBackButtonHidden(true)
