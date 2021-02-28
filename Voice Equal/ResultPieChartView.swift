@@ -9,16 +9,46 @@ import SwiftUI
 
 struct ResultPieChartView: View {
     
+    @ObservedObject var userTime = SavedTime()
+    @ObservedObject var userCount = SavedCount()
+    
+    var count: Bool
+    @State var dataModel: [ChartCellModel] = []
+    
     var body: some View {
-        DonutChart(dataModel: ChartDataModel.init(dataModel: sample))
+        DonutChart(dataModel: ChartDataModel.init(dataModel: dataModel))
         .frame(width: 120, height: 120, alignment: .center)
         .padding()
+            .onAppear{
+                self.calculateData(count: count)
+            }
     }
+    
+    func calculateData(count:Bool) {
+        var womenCount = 0
+        var menCount = 0
+        var womenTime = 0
+        var menTime = 0
+        
+        if(count) {
+            womenCount = Int(self.userCount.womenCount) ?? 0
+            menCount = Int(self.userCount.menCount) ?? 0
+
+        } else {
+            womenTime = self.userTime.womenMins*60 + self.userTime.womenSecs
+            menTime = self.userTime.menMins*60 + self.userTime.menSecs
+        }
+
+        dataModel = [ ChartCellModel(color: Color("men"), value: count ? CGFloat(menCount) : CGFloat(menTime), name: "Men"),
+                      ChartCellModel(color: Color("women"), value: count ? CGFloat(womenCount): CGFloat(womenTime), name: "Women")
+            ]
+    }
+    
 }
 
 struct ResultPieChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultPieChartView()
+        ResultPieChartView(count:false)
     }
 }
 
@@ -121,7 +151,3 @@ final class ChartDataModel: ObservableObject {
         return lastBarEndAngle
     }
 }
-
-let sample = [ ChartCellModel(color: Color("men"), value: 50, name: "Men"),
-               ChartCellModel(color: Color("women"), value: 50, name: "Women")
-             ]

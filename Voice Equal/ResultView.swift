@@ -17,12 +17,12 @@ struct ResultView: View {
                     Spacer()
                     VStack{
                         Text("HEADCOUNT")
-                        ResultPieChartView()
+                        ResultPieChartView(count: true)
                     }
                     Spacer()
                     VStack{
                         Text("TIME")
-                        ResultPieChartView()
+                        ResultPieChartView(count: false)
                     }
                     Spacer()
                 }
