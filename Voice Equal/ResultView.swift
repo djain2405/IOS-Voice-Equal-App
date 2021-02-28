@@ -38,14 +38,20 @@ struct ResultView: View {
                         .bold()
                         .foregroundColor(Color("women"))
                         .padding(.bottom, 8)
-                    Text("\(self.womenCountPercent)% of speakers were women and they spoke  \(self.womenTimePercent)% of the time")
-                        .padding(.bottom, 12)
+                    Group{
+                        Text("\(self.womenCountPercent)%")
+                            .bold().foregroundColor(Color("women")) + Text(" of speakers were women and they spoke ") + Text("\(self.womenTimePercent)%").bold().foregroundColor(Color("women")) + Text(" of the time")
+                    }
+                    .padding(.bottom, 12)
                     Text("MEN")
                             .bold()
                             .foregroundColor(Color("men"))
                             .padding(.bottom, 8)
-                    Text("\(self.menCountPercent)% of speakers were men and they spoke  \(self.menTimePercent)% of the time")
-                        .padding(.bottom, 12)
+                    Group{
+                        Text("\(self.menCountPercent)%")
+                            .bold().foregroundColor(Color("men")) + Text(" of speakers were women and they spoke ") + Text("\(self.menTimePercent)%").bold().foregroundColor(Color("men")) + Text(" of the time")
+                    }
+                    .padding(.bottom, 12)
                 }
                 .padding()
                 .overlay(
