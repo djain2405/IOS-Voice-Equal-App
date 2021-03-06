@@ -42,11 +42,25 @@ struct ContentView: View {
                         print("See Result!")
                     }, label: {
                         Text("See Result")
+                            .foregroundColor(self.themeColor.textColor)
                     })
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                .shadow(color: .white, radius: 10, x: -10, y: -10)
+                                .shadow(color: .black, radius: 10, x: 10, y: 10)
+                                .blendMode(.overlay)
+                            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                .fill(self.themeColor.resultButton)
+                        }
+                    )
                 }
             }
             .padding(.horizontal, 24)
-            .padding(.vertical, 24)
+            .padding(.top, 24)
+            .padding(.bottom, 36)
             .background(self.themeColor.backgroundColor)
             .ignoresSafeArea()
         }

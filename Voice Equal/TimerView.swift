@@ -34,6 +34,7 @@ struct TimerView: View {
                         Button(action:{
                             self.themeColor.backgroundColor = Color("women")
                             self.themeColor.textColor = Color(.white)
+                            self.themeColor.resultButton = Color(.darkGray)
                             self.stopMenTimer()
                             self.startWomenTimer()
                         }, label: {
@@ -79,6 +80,7 @@ struct TimerView: View {
                         Button(action:{
                             self.themeColor.backgroundColor = Color("men")
                             self.themeColor.textColor = Color(.white)
+                            self.themeColor.resultButton = Color(.darkGray)
                             self.stopWomenTimer()
                             self.startMenTimer()
                         }, label: {

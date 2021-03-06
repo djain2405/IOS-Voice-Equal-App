@@ -16,6 +16,7 @@ class ThemeColor: ObservableObject {
   
     @Published var backgroundColor = Color("background")
     @Published var textColor = Color(.black)
+    @Published var resultButton = Color("background")
 }
 
 extension UserDefaults {
