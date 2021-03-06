@@ -30,8 +30,6 @@ struct ContentView: View {
                     .padding(.top, 32)
                     .padding(.bottom, 32)
                 CounterView()
-                    .padding()
-                    .border(Color.gray)
                 TimerView()
                     .padding(.top, 32)
                 Spacer()
