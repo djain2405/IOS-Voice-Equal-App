@@ -78,8 +78,8 @@ struct CounterView: View {
         .background(
             ZStack {
                 RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .shadow(color: .white, radius: 10, x: -10, y: -10)
-                    .shadow(color: .black, radius: 10, x: 10, y: 10)
+                    .shadow(color: .white, radius: 10, x: -5, y: -5)
+                    .shadow(color: .black, radius: 10, x: 5, y: 5)
                     .blendMode(.overlay)
                 RoundedRectangle(cornerRadius: 10, style: .continuous)
                     .fill(self.themeColor.backgroundColor)

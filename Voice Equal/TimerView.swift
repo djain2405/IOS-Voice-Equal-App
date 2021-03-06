@@ -59,8 +59,8 @@ struct TimerView: View {
                 .background(
                     ZStack {
                         Circle()
-                            .shadow(color: .white, radius: 10, x: -10, y: -10)
-                            .shadow(color: .black, radius: 10, x: 10, y: 10)
+                            .shadow(color: .white, radius: 10, x: -5, y: -5)
+                            .shadow(color: .black, radius: 10, x: 5, y: 5)
                             .blendMode(.overlay)
                             .frame(width: 280,height:160)
                         Circle()
@@ -105,8 +105,8 @@ struct TimerView: View {
                 .background(
                     ZStack {
                         Circle()
-                            .shadow(color: .white, radius: 10, x: -10, y: -10)
-                            .shadow(color: .black, radius: 10, x: 10, y: 10)
+                            .shadow(color: .white, radius: 10, x: -5, y: -5)
+                            .shadow(color: .black, radius: 10, x: 5, y: 5)
                             .blendMode(.overlay)
                             .frame(width: 280,height:160)
                         Circle()
@@ -123,6 +123,7 @@ struct TimerView: View {
                 UserDefaults.resetDefaults()
                 self.themeColor.backgroundColor = Color("background")
                 self.themeColor.textColor = Color(.black)
+                self.themeColor.resultButton = Color("background")
             }) {
                 Image(systemName: "arrow.clockwise.circle")
                     .resizable()
