@@ -82,9 +82,9 @@ struct CounterView: View {
                     .shadow(color: .black, radius: 10, x: 10, y: 10)
                     .blendMode(.overlay)
                 RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .fill(Color("background"))
+                    .fill(self.themeColor.backgroundColor)
             }
-    )
+        )
     }
 }
 

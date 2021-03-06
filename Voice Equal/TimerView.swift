@@ -23,7 +23,6 @@ struct TimerView: View {
     var body: some View {
         VStack{
             HStack{
-                Spacer()
                 VStack{
                     Text("WOMEN")
                         .foregroundColor(self.themeColor.textColor)
@@ -56,10 +55,17 @@ struct TimerView: View {
                 }
                 .padding(24)
                 .cornerRadius(100)
-                .overlay(
-                    Circle()
-                        .strokeBorder(Color.gray,lineWidth: 1)
-                        .frame(width: 280,height:160)
+                .background(
+                    ZStack {
+                        Circle()
+                            .shadow(color: .white, radius: 10, x: -10, y: -10)
+                            .shadow(color: .black, radius: 10, x: 10, y: 10)
+                            .blendMode(.overlay)
+                            .frame(width: 280,height:160)
+                        Circle()
+                            .fill(self.themeColor.backgroundColor)
+                            .frame(width: 280,height:160)
+                    }
                 )
                 Spacer()
                 VStack {
@@ -94,13 +100,20 @@ struct TimerView: View {
                 }
                 .padding(24)
                 .cornerRadius(100)
-                .overlay(
-                    Circle()
-                        .strokeBorder(Color.gray,lineWidth: 1)
-                        .frame(width: 280,height:160)
+                .background(
+                    ZStack {
+                        Circle()
+                            .shadow(color: .white, radius: 10, x: -10, y: -10)
+                            .shadow(color: .black, radius: 10, x: 10, y: 10)
+                            .blendMode(.overlay)
+                            .frame(width: 280,height:160)
+                        Circle()
+                            .fill(self.themeColor.backgroundColor)
+                            .frame(width: 280,height:160)
+                    }
                 )
-                Spacer()
             }
+            .padding()
             Text("Reset")
                 .foregroundColor(self.themeColor.textColor)
             Button(action: {
