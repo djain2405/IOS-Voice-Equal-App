@@ -24,11 +24,43 @@ struct ResultView: View {
                     VStack{
                         Text("HEADCOUNT")
                         ResultPieChartView(count: true)
+                        HStack{
+                            Rectangle()
+                                .fill(Color("women"))
+                                .frame(width: 8, height: 8)
+                            Text("\(self.womenCountPercent)%")
+                                .foregroundColor(Color("women"))
+                                .bold()
+                        }
+                        HStack{
+                            Rectangle()
+                                .fill(Color("men"))
+                                .frame(width: 8, height: 8)
+                            Text("\(self.menCountPercent)%")
+                                .foregroundColor(Color("men"))
+                                .bold()
+                        }
                     }
                     Spacer()
                     VStack{
                         Text("TIME")
                         ResultPieChartView(count: false)
+                        HStack{
+                            Rectangle()
+                                .fill(Color("women"))
+                                .frame(width: 8, height: 8)
+                            Text("\(self.womenTimePercent)%")
+                                .foregroundColor(Color("women"))
+                                .bold()
+                        }
+                        HStack{
+                            Rectangle()
+                                .fill(Color("men"))
+                                .frame(width: 8, height: 8)
+                            Text("\(self.menTimePercent)%")
+                                .foregroundColor(Color("men"))
+                                .bold()
+                        }
                     }
                     Spacer()
                 }
