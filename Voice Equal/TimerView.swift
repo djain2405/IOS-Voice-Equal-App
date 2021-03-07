@@ -35,6 +35,9 @@ struct TimerView: View {
                             self.themeColor.backgroundColor = Color("women")
                             self.themeColor.textColor = Color(.white)
                             self.themeColor.resultButton = Color(.darkGray)
+                            self.themeColor.womenCounterTextColor = Color(.white)
+                            self.themeColor.menCounterTextColor = Color(.white)
+                            self.themeColor.buttonTint = Color(.white)
                             self.stopMenTimer()
                             self.startWomenTimer()
                         }, label: {
@@ -81,6 +84,9 @@ struct TimerView: View {
                             self.themeColor.backgroundColor = Color("men")
                             self.themeColor.textColor = Color(.white)
                             self.themeColor.resultButton = Color(.darkGray)
+                            self.themeColor.womenCounterTextColor = Color(.white)
+                            self.themeColor.menCounterTextColor = Color(.white)
+                            self.themeColor.buttonTint = Color(.white)
                             self.stopWomenTimer()
                             self.startMenTimer()
                         }, label: {
@@ -127,7 +133,7 @@ struct TimerView: View {
             }) {
                 Image(systemName: "arrow.clockwise.circle")
                     .resizable()
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(self.themeColor.buttonTint)
                     .frame(width: 32, height: 32, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             }
             Text("Total Duration")

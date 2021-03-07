@@ -28,7 +28,7 @@ struct CounterView: View {
                     TextField("", text: $userCount.womenCount)
                         .disabled(self.editMode)
                         .foregroundColor(
-                            !self.editMode ? Color.black : Color("women"))
+                            self.themeColor.womenCounterTextColor)
                         .keyboardType(.decimalPad)
                         .frame(width: 32)
                         .font(.title2)
@@ -41,7 +41,7 @@ struct CounterView: View {
                     TextField("", text:$userCount.menCount )
                         .disabled(self.editMode)
                         .foregroundColor(
-                            !self.editMode ? Color.black : Color("men"))
+                            self.themeColor.menCounterTextColor)
                         .keyboardType(.decimalPad)
                         .frame(width: 32)
                         .font(.title2)
@@ -51,6 +51,8 @@ struct CounterView: View {
             if !editMode {
                     Button(action: {
                     // Dismiss keyboard on Save
+                        self.themeColor.womenCounterTextColor = Color("women")
+                        self.themeColor.menCounterTextColor = Color("men")
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
                         self.editMode.toggle()
                     print("Saved!")
@@ -69,7 +71,7 @@ struct CounterView: View {
                 }) {
                     Image(systemName: "pencil.circle")
                         .resizable()
-                        .foregroundColor(Color.gray)
+                        .foregroundColor(self.themeColor.buttonTint)
                         .frame(width: 32, height: 32, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }
             }

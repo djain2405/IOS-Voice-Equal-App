@@ -17,6 +17,9 @@ class ThemeColor: ObservableObject {
     @Published var backgroundColor = Color("background")
     @Published var textColor = Color(.black)
     @Published var resultButton = Color("background")
+    @Published var womenCounterTextColor = Color(.black)
+    @Published var menCounterTextColor = Color(.black)
+    @Published var buttonTint = Color(.gray)
 }
 
 extension UserDefaults {
