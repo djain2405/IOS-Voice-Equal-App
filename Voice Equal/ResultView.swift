@@ -11,6 +11,9 @@ struct ResultView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @ObservedObject var userTime = SavedTime()
     @ObservedObject var userCount = SavedCount()
+    
+    @ObservedObject var themeColor: ThemeColor = .shared
+
     @State var womenCountPercent: Int = 0
     @State var menCountPercent: Int = 0
     @State var womenTimePercent: Int = 0
@@ -91,6 +94,23 @@ struct ResultView: View {
                         .stroke(Color.gray, lineWidth: 1)
                 )
                 Spacer()
+                Button(action: {
+                    UserDefaults.resetDefaults()
+                    self.themeColor.backgroundColor = Color("background")
+                    self.themeColor.textColor = Color(.black)
+                    self.themeColor.resultButton = Color("background")
+                    self.mode.wrappedValue.dismiss()
+                    print("restart")
+                }, label: {
+                    Text("Restart")
+                        .foregroundColor(.white)
+                })
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(
+                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                            .fill(Color(.darkGray))
+                )
             }
             .onAppear(){
                 let totalCount = (Int(self.userCount.menCount) ?? 0) + (Int(self.userCount.womenCount) ?? 0)
@@ -106,6 +126,7 @@ struct ResultView: View {
                
             }
             .padding()
+            .padding(.bottom, 32)
             .navigationBarBackButtonHidden(true)
             .navigationBarTitle("RESULT", displayMode: .inline)
             .navigationBarItems(leading: Button(action : {
