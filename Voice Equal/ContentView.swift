@@ -19,6 +19,15 @@ struct ContentView: View {
         UINavigationBar.appearance().standardAppearance = appearance
     }
     
+    private func resetTheme() {
+        self.themeColor.backgroundColor = Color("background")
+        self.themeColor.textColor = Color(.black)
+        self.themeColor.resultButton = Color("background")
+        self.themeColor.womenCounterTextColor = Color(.black)
+        self.themeColor.menCounterTextColor = Color(.black)
+        self.themeColor.buttonTint = Color(.gray)
+    }
+    
     var body: some View {
         
         NavigationView {
@@ -39,7 +48,7 @@ struct ContentView: View {
                         withAnimation{
                             self.resultView.toggle()
                         }
-                        print("See Result!")
+                        resetTheme()
                     }, label: {
                         Text("See Result")
                             .foregroundColor(self.themeColor.textColor)
