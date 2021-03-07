@@ -20,6 +20,28 @@ struct TimerView: View {
     @State var menTimer: Timer? = nil
 
 
+    private func startWomenTimerOnPlay() {
+        self.themeColor.backgroundColor = Color("women")
+        self.themeColor.textColor = Color(.white)
+        self.themeColor.resultButton = Color(.darkGray)
+        self.themeColor.womenCounterTextColor = Color(.white)
+        self.themeColor.menCounterTextColor = Color(.white)
+        self.themeColor.buttonTint = Color(.white)
+        self.stopMenTimer()
+        self.startWomenTimer()
+    }
+    
+    private func startMenTimerOnPlay() {
+        self.themeColor.backgroundColor = Color("men")
+        self.themeColor.textColor = Color(.white)
+        self.themeColor.resultButton = Color(.darkGray)
+        self.themeColor.womenCounterTextColor = Color(.white)
+        self.themeColor.menCounterTextColor = Color(.white)
+        self.themeColor.buttonTint = Color(.white)
+        self.stopWomenTimer()
+        self.startMenTimer()
+    }
+    
     var body: some View {
         VStack{
             HStack{
@@ -32,14 +54,7 @@ struct TimerView: View {
                         .font(.title)
                     if womenTimerIsPaused {
                         Button(action:{
-                            self.themeColor.backgroundColor = Color("women")
-                            self.themeColor.textColor = Color(.white)
-                            self.themeColor.resultButton = Color(.darkGray)
-                            self.themeColor.womenCounterTextColor = Color(.white)
-                            self.themeColor.menCounterTextColor = Color(.white)
-                            self.themeColor.buttonTint = Color(.white)
-                            self.stopMenTimer()
-                            self.startWomenTimer()
+                            startWomenTimerOnPlay()
                         }, label: {
                             Image("womenplay")
                                 .resizable()
@@ -81,14 +96,7 @@ struct TimerView: View {
                         .font(.title)
                     if menTimerIsPaused {
                         Button(action:{
-                            self.themeColor.backgroundColor = Color("men")
-                            self.themeColor.textColor = Color(.white)
-                            self.themeColor.resultButton = Color(.darkGray)
-                            self.themeColor.womenCounterTextColor = Color(.white)
-                            self.themeColor.menCounterTextColor = Color(.white)
-                            self.themeColor.buttonTint = Color(.white)
-                            self.stopWomenTimer()
-                            self.startMenTimer()
+                            startMenTimerOnPlay()
                         }, label: {
                             Image("menplay")
                                 .resizable()
