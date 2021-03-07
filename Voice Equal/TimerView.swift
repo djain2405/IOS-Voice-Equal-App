@@ -16,6 +16,9 @@ struct TimerView: View {
     @State var womenTimerIsPaused: Bool = true
     @State var menTimerIsPaused: Bool = true
     
+    @State var womenStartTimer: Bool = true
+    @State var menStartTimer: Bool = true
+    
     @State var womenTimer: Timer? = nil
     @State var menTimer: Timer? = nil
 
@@ -53,14 +56,29 @@ struct TimerView: View {
                         .foregroundColor(self.themeColor.textColor)
                         .font(.title)
                     if womenTimerIsPaused {
-                        Button(action:{
-                            startWomenTimerOnPlay()
-                        }, label: {
-                            Image("womenplay")
-                                .resizable()
-                                .frame(width: 32, height: 32, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        })
-                        .padding(8)
+                        if(womenStartTimer) {
+                            Button(action:{
+                                womenStartTimer = false
+                                startWomenTimerOnPlay()
+                            }, label: {
+                                Text("Start Timer")
+                                    .foregroundColor(.white)
+                            })
+                            .padding(8)
+                            .background(
+                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                        .fill(Color("women"))
+                            )
+                        } else {
+                            Button(action:{
+                                startWomenTimerOnPlay()
+                            }, label: {
+                                Image("womenplay")
+                                    .resizable()
+                                    .frame(width: 32, height: 32, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            })
+                            .padding(8)
+                        }
                     } else {
                         Button(action:{
                             self.stopWomenTimer()
@@ -77,8 +95,8 @@ struct TimerView: View {
                 .background(
                     ZStack {
                         Circle()
-                            .shadow(color: .white, radius: 10, x: -5, y: -5)
-                            .shadow(color: .black, radius: 10, x: 5, y: 5)
+                            .shadow(color: .white, radius: 10, x: -10, y: -10)
+                            .shadow(color: .black, radius: 10, x: 10, y: 10)
                             .blendMode(.overlay)
                             .frame(width: 280,height:160)
                         Circle()
@@ -95,14 +113,29 @@ struct TimerView: View {
                         .foregroundColor(self.themeColor.textColor)
                         .font(.title)
                     if menTimerIsPaused {
-                        Button(action:{
-                            startMenTimerOnPlay()
-                        }, label: {
-                            Image("menplay")
-                                .resizable()
-                                .frame(width: 32, height: 32, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        })
-                        .padding(8)
+                        if(menStartTimer) {
+                            Button(action:{
+                                menStartTimer = false
+                                startMenTimerOnPlay()
+                            }, label: {
+                                Text("Start Timer")
+                                    .foregroundColor(.white)
+                            })
+                            .padding(8)
+                            .background(
+                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                        .fill(Color("men"))
+                            )
+                        } else {
+                            Button(action:{
+                                startMenTimerOnPlay()
+                            }, label: {
+                                Image("menplay")
+                                    .resizable()
+                                    .frame(width: 32, height: 32, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            })
+                            .padding(8)
+                        }
                     } else {
                         Button(action:{
                             self.stopMenTimer()
